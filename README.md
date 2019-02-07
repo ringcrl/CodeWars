@@ -15,8 +15,14 @@ https://www.codewars.com/users/ringcrl
 
 # 刷题记录
 
-[x] [8 kyu](https://www.codewars.com/kata/search/my-languages?q=&r%5B%5D=-8&xids=played&beta=false&order_by=satisfaction_percent+desc%2Ctotal_completed+desc)
+- Sort By: Positive Feedback，>= 90%
+- Language：JavaScript
+- Status：Approved
+- Progress：Kata I hava not completed
+- Diffculty：To 6 kyu
 
-[x] [正则](https://www.codewars.com/kata/search/javascript?q=&r%5B%5D=-7&tags=Regular+Expressions&xids=completed&beta=false&order_by=satisfaction_percent+desc%2Ctotal_completed+desc)
+- [8 kyu](https://www.codewars.com/kata/search/my-languages?q=&r%5B%5D=-8&xids=played&beta=false&order_by=satisfaction_percent+desc%2Ctotal_completed+desc)
 
-[] [递归](https://www.codewars.com/kata/search/my-languages?q=&r%5B%5D=-7&tags=Recursion&xids=played&beta=false&order_by=satisfaction_percent+desc%2Ctotal_completed+desc)
+- [正则](https://www.codewars.com/kata/search/javascript?q=&r%5B%5D=-7&tags=Regular+Expressions&xids=completed&beta=false&order_by=satisfaction_percent+desc%2Ctotal_completed+desc)
+
+- [递归](https://www.codewars.com/kata/search/my-languages?q=&r%5B%5D=-6&tags=Recursion&xids=played&beta=false&order_by=satisfaction_percent+desc%2Ctotal_completed+desc)
