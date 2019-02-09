@@ -21,15 +21,9 @@ https://www.codewars.com/users/ringcrl
 - Progress：Kata I hava not completed
 - Diffculty：To 6 kyu
 
-# 刷题记录
+[每日刷题](https://www.codewars.com/kata/search/my-languages?q=&xids=completed&beta=false&order_by=satisfaction_percent+desc%2Ctotal_completed+desc)
 
-- [8 kyu](https://www.codewars.com/kata/search/my-languages?q=&r%5B%5D=-8&xids=played&beta=false&order_by=satisfaction_percent+desc%2Ctotal_completed+desc)
-
-- [正则](https://www.codewars.com/kata/search/javascript?q=&r%5B%5D=-7&tags=Regular+Expressions&xids=completed&beta=false&order_by=satisfaction_percent+desc%2Ctotal_completed+desc)
-
-- [递归](https://www.codewars.com/kata/search/my-languages?q=&r%5B%5D=-6&tags=Recursion&xids=completed&beta=false&order_by=satisfaction_percent+desc%2Ctotal_completed+desc)
-
-# 一些有意思的题目
+# 有意思的题目
 
 | 题目              | 代码                          |
 | ----------------- | ----------------------------- |
