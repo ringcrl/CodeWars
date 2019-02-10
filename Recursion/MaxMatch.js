@@ -1,6 +1,9 @@
 /**
  * https://www.codewars.com/kata/word-segmentation-maxmatch/train/javascript
  * 
+ * MaxMatch 句子分词
+ * - 找到最大长度单词进行分词
+ * 
  * @param {string} sentence 
  */
 function maxMatch(sentence){

@@ -22,9 +22,3 @@ https://www.codewars.com/users/ringcrl
 - Diffculty：To 6 kyu
 
 [每日刷题](https://www.codewars.com/kata/search/my-languages?q=&xids=completed&beta=false&order_by=satisfaction_percent+desc%2Ctotal_completed+desc)
-
-# 有意思的题目
-
-| 题目              | 代码                          |
-| ----------------- | ----------------------------- |
-| MaxMatch 句子分词 | [code](Recursion/MaxMatch.js) |
