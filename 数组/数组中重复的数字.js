@@ -16,8 +16,16 @@
 function duplicate(nums) {
   if (nums === null || nums.length === 0) { return false; }
 
+  const map = {};
+
   for (let i = 0; i < nums.length; i++) {
-    while (nums[i] !== i) {
+    if (map[nums[i]]) {
+      return nums[i];
     }
+    map[nums[i]] = 1;
   }
+
+  return false;
 }
+
+console.log(duplicate([2, 3, 1, 0, 2, 5]));

@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "vscode-jest-tests",
+      // "program": "/Users/ringcrl/.nvm/versions/node/v8.12.0/bin/jest",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": [
+        "--runInBand"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "javascript",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "/Users/ringcrl/.nvm/versions/node/v8.12.0/bin/node",
+      "outputCapture" : "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "typescript",
+      "args": ["${file}"],
+      "runtimeArgs": [
+        "-r",
+        "/Users/ringcrl/.nvm/versions/node/v8.12.0/lib/node_modules/ts-node/register"
+      ],
+      "cwd": "${workspaceFolder}",
+      "protocol": "inspector",
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}
