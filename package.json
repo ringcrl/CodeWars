@@ -1,0 +1,19 @@
+{
+  "name": "codewars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node helper.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ringcrl/CodeWars.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ringcrl/CodeWars/issues"
+  },
+  "homepage": "https://github.com/ringcrl/CodeWars#readme"
+}
