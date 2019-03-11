@@ -135,34 +135,98 @@ console.log(getNUglyNumber(10));
 ## 变态跳台阶.js
 
 ```js
+/**
+ * 一只青蛙一次可以跳上1级台阶，也可以跳上2级
+ * 它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法
+ * 
+ * 1. 跳上 n-1 级台阶，可以从 n-2 级跳 1 级上去，也可以从 n-3 级跳 2 级上去
+ *    f(n-1) = f(n-2) + f(n-3) + ... + f(0)
+ * 2. 跳上 n 级台阶，可以从 n-1 级跳 1 级上去，也可以从 n-2 级跳 2 级上去.
+ *    f(n) = f(n-1) + f(n-2) + ... + f(0)
+ * 3. f(n) - f(n-1) = f(n-1) => f(n) = 2*f(n-1)
+ */
 
+function JumpFloorII(target) {
+  const dp = new Array(target).fill(1);
+  for (let i = 1; i < target; i++) {
+    for (let j = 0; j < i; j++) {
+      dp[i] += dp[j];
+    }
+  }
+  return dp[target - 1];
+}
 ```
 
 ## 斐波那契数列.js
 
 ```js
-
-```
-
-## 正则表达式匹配.js
-
-```js
-
-```
-
-## 矩阵覆盖.js
-
-```js
-
+/**
+ * 求斐波那契数列的第 n 项，n <= 39
+ * 
+ * 递归是将一个问题划分成多个子问题求解，动态规划也是如此，
+ * 但是动态规划会把子问题的解缓存起来，从而避免重复求解子问题
+ */
+function fibonacci(n) {
+  if (n <= 1) { return n; }
+  const fib = [];
+  fib[0] = 0;
+  fib[1] = 1;
+  for (let i = 2; i <= n; i++) {
+    fib[i] = fib[i - 1] + fib[i - 2];
+  }
+  return fib[n];
+}
 ```
 
 ## 跳台阶.js
 
 ```js
-
+/**
+ * 一只青蛙一次可以跳上 1 级台阶，也可以跳上 2 级
+ * 求该青蛙跳上一个 n 级的台阶总共有多少种跳法
+ */
+function JumpFloor(n) {
+  if (n <= 2) {
+    return n;
+  }
+  let total;
+  let pre2 = 1;
+  let pre1 = 2;
+  for (let i = 2; i < n; i++) {
+    total = pre2 + pre1;
+    pre2 = pre1;
+    pre1 = total;
+  }
+  return total;
+}
 ```
 
 # 哈希
+
+## 字符流中第一个不重复的字符.js
+
+```js
+/**
+ * 请实现一个函数用来找出字符流中第一个只出现一次的字符
+ * 例如，当从字符流中只读出前两个字符 "go" 时，第一个只出现一次的字符是 "g"
+ * 当从该字符流中读出前六个字符“google" 时，第一个只出现一次的字符是 "l"
+ */
+function FirstAppearingOnce(str) {
+  const map = str.split('').reduce((prev, curr) => {
+    prev[curr] = prev[curr] ?
+      prev[curr] + 1 :
+      1;
+    return prev;
+  }, {});
+  for (const key in map) {
+    if (map[key] === 1) {
+      return key;
+    }
+  }
+}
+
+console.log(FirstAppearingOnce('google'));
+```
 
 ## 第一个只出现一次的字符位置.js
 
@@ -186,44 +250,83 @@ function FirstNotRepeatingChar(str) {
 console.log(FirstNotRepeatingChar([1, 2, 3, 4, 3, 2, 1]));
 ```
 
-# 回溯
-
-## 机器人的运动范围.js
-
-```js
-
-```
-
-## 矩阵中的路径.js
-
-```js
-
-```
-
 # 堆
-
-## 字符流中第一个不重复的字符.js
-
-```js
-
-```
 
 ## 数据流中的中位数.js
 
 ```js
-
+/**
+ * 如何得到一个数据流中的中位数？
+ * 如果从数据流中读出奇数个数值，
+ * 那么中位数就是所有数值排序之后位于中间的数值。
+ * 如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值
+ * 
+ * 使用 5、6 来区分中位数
+ */
+function getMedian(arr) {
+  arr.sort((a, b) => a - b);
+  if (arr.lenth % 2 === 0) {
+    const left = Math.floor(arr.lenth / 2);
+    const right = left + 1;
+    return (arr[left] + arr[right]) / 2;
+  } else {
+    const mid = Math.ceil(arr.lenth / 2);
+    return arr[mid];
+  }
+}
 ```
 
 ## 最小的K个数.js
 
 ```js
-
+/**
+ * 返回数组最小的 K 个数
+ * 
+ * 1. 使用堆，需要构建堆这个数据结构
+ * 2. 直接快排
+ */
+function findKthSmallest(arr, k) {
+  arr.sort((a, b) => a - b);
+  return arr.slice(0, k);
+}
 ```
 
 ## 滑动窗口的最大值.js
 
 ```js
+/**
+ * 给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。
+ * 例如，如果输入数组 {2, 3, 4, 2, 6, 2, 5, 1} 及滑动窗口的大小 3，
+ * 那么一共存在 6 个滑动窗口，他们的最大值分别为 {4, 4, 6, 6, 6, 5}。
+ */
+function maxInWindows(arr, size) {
+  if (size > arr.length || size === 0) {
+    return [];
+  }
+  const res = [];
+  let maxIndex = -1;
+  for (let l = 0, r = size - 1; r < arr.length; l++, r++) {
+    if (maxIndex < l) {
+      maxIndex = getMaxIndex(arr, l, r);
+    }
+    if (arr[r] > arr[maxIndex]) {
+      maxIndex = r;
+    }
+    res.push(arr[maxIndex]);
+  }
+  return res;
+}
 
+function getMaxIndex(arr, l, r) {
+  let index = l;
+  for (let i = l; i <= r; i++) {
+    if (arr[i] > arr[index]) {
+      index = i;
+    }
+  }
+
+  return index;
+}
 ```
 
 # 字符串
@@ -231,58 +334,49 @@ console.log(FirstNotRepeatingChar([1, 2, 3, 4, 3, 2, 1]));
 ## 字符串的排列.js
 
 ```js
-
+/**
+ * 输入一个字符串，按字典序打印出该字符串中字符的所有排列。
+ * 例如输入字符串 abc，则打印出由字符 a, b, c 所能排列出来的所有字符串
+ * abc, acb, bac, bca, cab 和 cba
+ */
 ```
 
-## 字符流中第一个不重复的字符.js
-
-```js
-
-```
-
-## 把数组排成最小数.js
-
-```js
-
-```
-
-## 替换空格.js
-
-```js
-
-```
-
-## 正则表达式匹配.js
+## 把数组排成最小的数.js
 
 ```js
 /**
- * 请实现一个函数用来匹配包括 '.' 和 '*' 的正则表达式。
- * 模式中的字符 '.' 表示任意一个字符，
- * 而 '*' 表示它前面的字符可以出现任意次（包含 0 次）。
- * 在本题中，匹配是指字符串的所有字符匹配整个模式。
- * 例如，字符串 "aaa" 与模式 "a.a" 和 "ab*ac*a" 匹配，
- * 但是与 "aa.a" 和 "ab*a" 均不匹配。
- * 
- * 这题的正解的 dp 方程，不过 JS 可以直接使用正则啊
+ * 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
+ * 例如输入数组 {3，32，321}，
+ * 则打印出这三个数字能排成的最小数字为 321323。
  */
-function match(s, p) {
-  const reg = new RegExp(`^${p}$`);
-  return reg.test(s);
-}
 ```
 
 ## 表示数值的字符串.js
 
 ```js
-
-```
-
-# 排序
-
-## 最小的K个数.js
-
-```js
-
+/**
+ * true
+ * "+100"
+ * "5e2"
+ * "-123"
+ * "3.1416"
+ * "-1E-16"
+ * 
+ * false
+ * "12e"
+ * "1a3.14"
+ * "1.2.3"
+ * "+-5"
+ * "12e+4.3"
+ * 
+ * 使用正则表达式进行匹配
+ */
+function isNumeric(str) {
+  if (str === null || str === '') {
+    return false;
+  }
+  return /[+-]?\\d*(\\.\\d+)?([eE][+-]?\\d+)?/.test(str);
+}
 ```
 
 # 数组
@@ -577,22 +671,34 @@ console.log(printMatrix(matrix));
 
 # 查找
 
-## 二维数组的查找.js
+## 数字在排序数组中出现的次数.js
 
 ```js
-
-```
-
-## 数字的排列数组中出现的次数.js
-
-```js
-
+/**
+ * Input:
+ * nums = 1, 2, 3, 3, 3, 3, 4, 6
+ * K = 3
+ * 
+ * Output:
+ * 4
+ */
+function GetNumberOfK() {
+  
+}
 ```
 
 ## 旋转数组的最小数字.js
 
 ```js
-
+/**
+ * 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。
+ * 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。
+ * 
+ * 例如数组 {3, 4, 5, 1, 2} 为 {1, 2, 3, 4, 5} 的一个旋转，该数组的最小值为 1。
+ */
+function minNumberInRotateArray() {
+  
+}
 ```
 
 # 栈
@@ -600,19 +706,32 @@ console.log(printMatrix(matrix));
 ## 包含min函数的栈.js
 
 ```js
-
+/**
+ * 定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的 min 函数。
+ */
+class minStack {}
 ```
 
 ## 栈的压入弹出序列.js
 
 ```js
-
+/**
+ * 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。
+ * 假设压入栈的所有数字均不相等。
+ * 例如序列 1,2,3,4,5 是某栈的压入顺序，序列 4,5,3,2,1 是该压栈序列对应的一个弹出序列，
+ * 但 4,3,5,1,2 就不可能是该压栈序列的弹出序列。
+ */
+function IsPopOrder() {}
 ```
 
 ## 用两个栈实现队列.js
 
 ```js
+/**
+ * 用两个栈来实现一个队列，完成队列的 Push 和 Pop 操作。
+ */
 
+ class stackToQueue {}
 ```
 
 # 树
@@ -620,30 +739,53 @@ console.log(printMatrix(matrix));
 ## 二叉搜索树与双向链表.js
 
 ```js
+/**
+ * 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。
+ * 要求不能创建任何新的结点，只能调整树中结点指针的指向。
+ */
+function Convert(root) {}
+
 
 ```
 
 ## 二叉搜索树的后序遍历序列.js
 
 ```js
+/**
+ * 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
+ * 假设输入的数组的任意两个数字都互不相同。
+ */
+function verifySquenceOfBST(sequence) {
 
+}
 ```
 
 ## 二叉搜索树的第K个结点.js
 
 ```js
-
+/**
+ * 利用二叉查找树中序遍历有序的特点
+ */
+function KthNode(root, k) {}
 ```
 
 ## 二叉树中和为某一值的路径.js
 
 ```js
-
+/**
+ * 输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。
+ * 路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
+ */
+function FindPath(root, target) {}
 ```
 
 ## 二叉树的下一个结点.js
 
 ```js
+/**
+ * 给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。
+ * 注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
+ */
 
 ```
 
