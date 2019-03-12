@@ -9,6 +9,8 @@
 
 另一个刷题战场：[LeetCode](https://github.com/ringcrl/LeetCode)
 
+docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97%E6%B3%95/CodeWars)
+
 # 个人主页
 
 实时分数：
@@ -250,6 +252,84 @@ function FirstNotRepeatingChar(str) {
 console.log(FirstNotRepeatingChar([1, 2, 3, 4, 3, 2, 1]));
 ```
 
+# 回溯
+
+## 字符串的排列.js
+
+```js
+/**
+ * 输入一个字符串，按字典序打印出该字符串中字符的所有排列。
+ * 例如输入字符串 abc，则打印出由字符 a, b, c 所能排列出来的所有字符串
+ * abc, acb, bac, bca, cab 和 cba
+ */
+function Permutation(str) {
+  if (!str || str.length === 0) {
+    return [];
+  }
+  let result = [];
+  const arr = str.split('');
+  let temp = '';
+  ordering(arr);
+  result = result.filter(function (item, index) {  //去重
+    return result.indexOf(item) === index;
+  });
+  return result;
+
+  function ordering(tempArr) {
+    if (tempArr.length === 0) {
+      result.push(temp);
+      return;
+    }
+    for (let i = 0; i < tempArr.length; i++) {
+      temp += tempArr[i];
+      const insideArr = tempArr.concat();
+      insideArr.splice(i, 1);
+      ordering(insideArr);
+      temp = temp.substring(0, temp.length - 1);   //回溯
+    }
+  }
+}
+```
+
+## 把数组排成最小的数.js
+
+```js
+/**
+ * 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
+ * 例如输入数组 {3，32，321}，
+ * 则打印出这三个数字能排成的最小数字为 321323。
+ */
+function PrintMinNumber(numbers) {
+  if (!numbers || numbers.length === 0) {
+    return [];
+  }
+  let result = [];
+  let temp = '';
+  ordering(numbers);
+
+  result = result.map(Number).reduce(function (min, a) {  //最小值
+    return min < a ? min : a;
+  }, Infinity);
+  return result;
+
+  function ordering(tempArr) {
+    let innerLen = 0;
+    if (tempArr.length === 0) {
+      result.push(temp);
+      return;
+    }
+    for (let i = 0; i < tempArr.length; i++) {
+      innerLen = tempArr[i].toString().length;
+      temp += tempArr[i];
+      const insideArr = tempArr.concat();
+      insideArr.splice(i, 1);
+      ordering(insideArr);
+      temp = temp.substring(0, temp.length - innerLen);   //回溯
+    }
+  }
+}
+```
+
 # 堆
 
 ## 数据流中的中位数.js
@@ -326,56 +406,6 @@ function getMaxIndex(arr, l, r) {
   }
 
   return index;
-}
-```
-
-# 字符串
-
-## 字符串的排列.js
-
-```js
-/**
- * 输入一个字符串，按字典序打印出该字符串中字符的所有排列。
- * 例如输入字符串 abc，则打印出由字符 a, b, c 所能排列出来的所有字符串
- * abc, acb, bac, bca, cab 和 cba
- */
-```
-
-## 把数组排成最小的数.js
-
-```js
-/**
- * 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
- * 例如输入数组 {3，32，321}，
- * 则打印出这三个数字能排成的最小数字为 321323。
- */
-```
-
-## 表示数值的字符串.js
-
-```js
-/**
- * true
- * "+100"
- * "5e2"
- * "-123"
- * "3.1416"
- * "-1E-16"
- * 
- * false
- * "12e"
- * "1a3.14"
- * "1.2.3"
- * "+-5"
- * "12e+4.3"
- * 
- * 使用正则表达式进行匹配
- */
-function isNumeric(str) {
-  if (str === null || str === '') {
-    return false;
-  }
-  return /[+-]?\\d*(\\.\\d+)?([eE][+-]?\\d+)?/.test(str);
 }
 ```
 
@@ -709,7 +739,27 @@ function minNumberInRotateArray() {
 /**
  * 定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的 min 函数。
  */
-class minStack {}
+class Stack {
+  constructor() {
+    this.stack = [];
+  }
+  push(node) {
+    this.stack.push(node);
+  }
+
+  pop() {
+    return this.stack.pop();
+  }
+
+  top() {
+    return this.stack[this.stack.length - 1];
+  }
+
+  min() {
+    // return Math.min.apply(null, this.stack);
+    return Math.min(...this.stack);
+  }
+}
 ```
 
 ## 栈的压入弹出序列.js
@@ -721,7 +771,22 @@ class minStack {}
  * 例如序列 1,2,3,4,5 是某栈的压入顺序，序列 4,5,3,2,1 是该压栈序列对应的一个弹出序列，
  * 但 4,3,5,1,2 就不可能是该压栈序列的弹出序列。
  */
-function IsPopOrder() {}
+function IsPopOrder(pushV, popV) {
+  if (!pushV.length || !popV.length) {
+    return false;
+  }
+  const temp = [];
+  let popIndex = 0;
+  const len = pushV.length;
+  for (let i = 0; i < len; i++) {
+    temp.push(pushV[i]);
+    while (temp.length && temp[temp.length - 1] === popV[popIndex]) {
+      temp.pop();
+      popIndex++;
+    }
+  }
+  return temp.length === 0;
+}
 ```
 
 ## 用两个栈实现队列.js
@@ -731,7 +796,31 @@ function IsPopOrder() {}
  * 用两个栈来实现一个队列，完成队列的 Push 和 Pop 操作。
  */
 
- class stackToQueue {}
+ class stackToQueue {
+   constructor() {
+    this.stack1 = [];
+    this.stack2 = [];
+   }
+
+   push(node) {
+     this.stack1.push(node);
+   }
+
+   pop() {
+     let temp = this.stack1.pop();
+     while (temp) {
+       this.stack2.push(temp);
+       temp = this.stack1.pop();
+     }
+     const result = this.stack2.pop();
+     temp = this.stack2.pop();
+     while (temp) {
+       this.stack1.push(temp);
+       temp = this.stack2.pop();
+     }
+     return result;
+   }
+ }
 ```
 
 # 树
@@ -847,6 +936,36 @@ function FindPath(root, target) {}
 
 ```js
 
+```
+
+# 正则
+
+## 表示数值的字符串.js
+
+```js
+/**
+ * true
+ * "+100"
+ * "5e2"
+ * "-123"
+ * "3.1416"
+ * "-1E-16"
+ * 
+ * false
+ * "12e"
+ * "1a3.14"
+ * "1.2.3"
+ * "+-5"
+ * "12e+4.3"
+ * 
+ * 使用正则表达式进行匹配
+ */
+function isNumeric(str) {
+  if (str === null || str === '') {
+    return false;
+  }
+  return /[+-]?\\d*(\\.\\d+)?([eE][+-]?\\d+)?/.test(str);
+}
 ```
 
 # 深度优先

@@ -17,6 +17,8 @@ let md = `本文件构建启发自 30-seconds-of-code，由 JS 文件打包生�
 
 另一个刷题战场：[LeetCode](https://github.com/ringcrl/LeetCode)
 
+docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97%E6%B3%95/CodeWars)
+
 # 个人主页
 
 实时分数：
