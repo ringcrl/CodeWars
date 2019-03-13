@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node helper.js"
+    "build": "node helper.js && yarn doctoc ./README.md"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ringcrl/CodeWars/issues"
   },
-  "homepage": "https://github.com/ringcrl/CodeWars#readme"
+  "homepage": "https://github.com/ringcrl/CodeWars#readme",
+  "dependencies": {
+    "doctoc": "^1.4.0"
+  }
 }

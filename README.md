@@ -31,6 +31,84 @@ https://www.codewars.com/users/ringcrl
 
 # 已刷题目
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [位运算](#%E4%BD%8D%E8%BF%90%E7%AE%97)
+  - [不用加减乘除做加法.js](#%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95js)
+  - [二进制中1的个数.js](#%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0js)
+  - [数组中只出现一次的数字.js](#%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97js)
+- [动态规划](#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92)
+  - [丑数.js](#%E4%B8%91%E6%95%B0js)
+  - [变态跳台阶.js](#%E5%8F%98%E6%80%81%E8%B7%B3%E5%8F%B0%E9%98%B6js)
+  - [斐波那契数列.js](#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97js)
+  - [跳台阶.js](#%E8%B7%B3%E5%8F%B0%E9%98%B6js)
+- [哈希](#%E5%93%88%E5%B8%8C)
+  - [字符流中第一个不重复的字符.js](#%E5%AD%97%E7%AC%A6%E6%B5%81%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%97%E7%AC%A6js)
+  - [第一个只出现一次的字符位置.js](#%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6%E4%BD%8D%E7%BD%AEjs)
+- [回溯](#%E5%9B%9E%E6%BA%AF)
+  - [字符串的排列.js](#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97js)
+  - [把数组排成最小的数.js](#%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0js)
+- [堆](#%E5%A0%86)
+  - [数据流中的中位数.js](#%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0js)
+  - [最小的K个数.js](#%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0js)
+  - [滑动窗口的最大值.js](#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BCjs)
+- [数组](#%E6%95%B0%E7%BB%84)
+  - [二维数组的查找.js](#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BEjs)
+  - [把数组排成最小的数.js](#%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0js-1)
+  - [数组中重复的数字.js](#%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97js)
+  - [构建乘积数组.js](#%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84js)
+  - [调整数组顺序使奇数位于偶数前面.js](#%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2js)
+  - [连续子数组的最大和.js](#%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8Cjs)
+  - [逻辑运算.js](#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97js)
+  - [顺时针打印矩阵.js](#%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5js)
+- [查找](#%E6%9F%A5%E6%89%BE)
+  - [数字在排序数组中出现的次数.js](#%E6%95%B0%E5%AD%97%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0js)
+  - [旋转数组的最小数字.js](#%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97js)
+- [栈](#%E6%A0%88)
+  - [包含min函数的栈.js](#%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88js)
+  - [栈的压入弹出序列.js](#%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97js)
+  - [用两个栈实现队列.js](#%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97js)
+- [树](#%E6%A0%91)
+  - [二叉搜索树与双向链表.js](#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8js)
+  - [二叉搜索树的后序遍历序列.js](#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97js)
+  - [二叉搜索树的第K个结点.js](#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E4%B8%AA%E7%BB%93%E7%82%B9js)
+  - [二叉树中和为某一值的路径.js](#%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84js)
+  - [二叉树的下一个结点.js](#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9js)
+  - [二叉树的深度.js](#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6js)
+  - [从上往下打印二叉树.js](#%E4%BB%8E%E4%B8%8A%E5%BE%80%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91js)
+  - [对称的二叉树.js](#%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91js)
+  - [平衡二叉树.js](#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91js)
+  - [序列化二叉树.js](#%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91js)
+  - [把二叉树打印成多行.js](#%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%93%E5%8D%B0%E6%88%90%E5%A4%9A%E8%A1%8Cjs)
+  - [按之字形顺序打印二叉树.js](#%E6%8C%89%E4%B9%8B%E5%AD%97%E5%BD%A2%E9%A1%BA%E5%BA%8F%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91js)
+  - [数据流中的中位数.js](#%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0js-1)
+  - [树的子结构.js](#%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84js)
+  - [重建二叉树.js](#%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91js)
+- [正则](#%E6%AD%A3%E5%88%99)
+  - [表示数值的字符串.js](#%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2js)
+- [深度优先](#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88)
+  - [机器人的运动范围.js](#%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4js)
+- [贪心](#%E8%B4%AA%E5%BF%83)
+  - [连续子数组的最大和.js](#%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8Cjs-1)
+- [递归](#%E9%80%92%E5%BD%92)
+  - [最大长度单词分词.js](#%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6%E5%8D%95%E8%AF%8D%E5%88%86%E8%AF%8Djs)
+- [链表](#%E9%93%BE%E8%A1%A8)
+  - [两个链表的第一个公共结点.js](#%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9js)
+  - [二叉搜索树与双向链表.js](#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8js-1)
+  - [从头到尾打印链表.js](#%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8js)
+  - [删除链表中重复的结点.js](#%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E7%BB%93%E7%82%B9js)
+  - [反转链表.js](#%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8js)
+  - [合并两个排序的链表.js](#%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8js)
+  - [把字符串转换成整数.js](#%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0js)
+  - [链表中倒数第K个结点.js](#%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E7%BB%93%E7%82%B9js)
+  - [链表中环的入口结点.js](#%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E7%BB%93%E7%82%B9js)
+- [队列](#%E9%98%9F%E5%88%97)
+  - [用两个栈实现队列.js](#%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97js-1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # 位运算
 
 ## 不用加减乘除做加法.js
@@ -830,11 +908,44 @@ function IsPopOrder(pushV, popV) {
 ```js
 /**
  * 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。
- * 要求不能创建任何新的结点，只能调整树中结点指针的指向。
+ * 要求不能创建任何新的结点，只能调整树中结点指针的指向。、
+ * 
+ * 1. 将左子树构成双向链表，返回的是左子树的尾结点，将其连接到 root 的左边
+ * 2. 将右子树构成双向链表，将其追加到 root 结点之后，并返回尾结点
+ * 3. 向左遍历返回的链表至头结点处，即为所求双向链表的首结点
  */
-function Convert(root) {}
+function convert(root) {
+  if (!root) { return null; }
+  let lastNode = null;
+  lastNode = convertNode(root);
+  let head = lastNode;
+  while (head && head.left) {
+    head = head.left;
+  }
+  return head;
 
+  function convertNode(node) {
+    if (!node) {
+      return;
+    }
 
+    if (node.left) {
+      lastNode = convertNode(node.left);
+    }
+    node.left = lastNode;
+
+    if (lastNode) {
+      lastNode.right = node;
+    }
+    lastNode = node;
+
+    if (node.right) {
+      lastNode = convertNode(node.right);
+    }
+
+    return lastNode;
+  }
+}
 ```
 
 ## 二叉搜索树的后序遍历序列.js

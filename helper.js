@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
+const excludes = require('./excludes');
 const filePath = path.resolve(__dirname);
 const distPath = path.resolve(__dirname, 'README.md');
 
@@ -39,6 +40,9 @@ https://www.codewars.com/users/ringcrl
 
 # 已刷题目
 
+<!-- START doctoc -->
+<!-- END doctoc -->
+
 `;
 
 function writeCode(fileStats) {
@@ -61,17 +65,7 @@ function readAllFiles(filePath, cb) {
   //根据文件路径读取文件，返回文件列表
   const files = fs.readdirSync(filePath);
   files.forEach((filename) => {
-    const exclude = [
-      '.lib',
-      '.git',
-      '.DS_Store',
-      '.vscode',
-      '.eslintrc.js',
-      'helper.js',
-      'package.json',
-      'README.md',
-    ];
-    if (exclude.includes(filename)) {
+    if (excludes.includes(filename)) {
       return;
     }
     // 获取当前文件的绝对路径
