@@ -70,42 +70,13 @@ https://www.codewars.com/users/ringcrl
   - [包含min函数的栈.js](#%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88js)
   - [栈的压入弹出序列.js](#%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97js)
   - [用两个栈实现队列.js](#%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97js)
-- [树](#%E6%A0%91)
-  - [二叉搜索树与双向链表.js](#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8js)
-  - [二叉搜索树的后序遍历序列.js](#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97js)
-  - [二叉搜索树的第K个结点.js](#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E7%AC%ACk%E4%B8%AA%E7%BB%93%E7%82%B9js)
-  - [二叉树中和为某一值的路径.js](#%E4%BA%8C%E5%8F%89%E6%A0%91%E4%B8%AD%E5%92%8C%E4%B8%BA%E6%9F%90%E4%B8%80%E5%80%BC%E7%9A%84%E8%B7%AF%E5%BE%84js)
-  - [二叉树的下一个结点.js](#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9js)
-  - [二叉树的深度.js](#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6js)
-  - [从上往下打印二叉树.js](#%E4%BB%8E%E4%B8%8A%E5%BE%80%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91js)
-  - [对称的二叉树.js](#%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91js)
-  - [平衡二叉树.js](#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91js)
-  - [序列化二叉树.js](#%E5%BA%8F%E5%88%97%E5%8C%96%E4%BA%8C%E5%8F%89%E6%A0%91js)
-  - [把二叉树打印成多行.js](#%E6%8A%8A%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%93%E5%8D%B0%E6%88%90%E5%A4%9A%E8%A1%8Cjs)
-  - [按之字形顺序打印二叉树.js](#%E6%8C%89%E4%B9%8B%E5%AD%97%E5%BD%A2%E9%A1%BA%E5%BA%8F%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91js)
-  - [数据流中的中位数.js](#%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0js-1)
-  - [树的子结构.js](#%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84js)
-  - [重建二叉树.js](#%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91js)
 - [正则](#%E6%AD%A3%E5%88%99)
   - [表示数值的字符串.js](#%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2js)
-- [深度优先](#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88)
-  - [机器人的运动范围.js](#%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4js)
-- [贪心](#%E8%B4%AA%E5%BF%83)
-  - [连续子数组的最大和.js](#%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8Cjs-1)
 - [递归](#%E9%80%92%E5%BD%92)
   - [最大长度单词分词.js](#%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6%E5%8D%95%E8%AF%8D%E5%88%86%E8%AF%8Djs)
 - [链表](#%E9%93%BE%E8%A1%A8)
   - [两个链表的第一个公共结点.js](#%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9js)
-  - [二叉搜索树与双向链表.js](#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8js-1)
   - [从头到尾打印链表.js](#%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8js)
-  - [删除链表中重复的结点.js](#%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E7%BB%93%E7%82%B9js)
-  - [反转链表.js](#%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8js)
-  - [合并两个排序的链表.js](#%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8js)
-  - [把字符串转换成整数.js](#%E6%8A%8A%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E6%95%B4%E6%95%B0js)
-  - [链表中倒数第K个结点.js](#%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E7%BB%93%E7%82%B9js)
-  - [链表中环的入口结点.js](#%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E7%BB%93%E7%82%B9js)
-- [队列](#%E9%98%9F%E5%88%97)
-  - [用两个栈实现队列.js](#%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97js-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -901,154 +872,6 @@ function IsPopOrder(pushV, popV) {
  }
 ```
 
-# 树
-
-## 二叉搜索树与双向链表.js
-
-```js
-/**
- * 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。
- * 要求不能创建任何新的结点，只能调整树中结点指针的指向。、
- * 
- * 1. 将左子树构成双向链表，返回的是左子树的尾结点，将其连接到 root 的左边
- * 2. 将右子树构成双向链表，将其追加到 root 结点之后，并返回尾结点
- * 3. 向左遍历返回的链表至头结点处，即为所求双向链表的首结点
- */
-function convert(root) {
-  if (!root) { return null; }
-  let lastNode = null;
-  lastNode = convertNode(root);
-  let head = lastNode;
-  while (head && head.left) {
-    head = head.left;
-  }
-  return head;
-
-  function convertNode(node) {
-    if (!node) {
-      return;
-    }
-
-    if (node.left) {
-      lastNode = convertNode(node.left);
-    }
-    node.left = lastNode;
-
-    if (lastNode) {
-      lastNode.right = node;
-    }
-    lastNode = node;
-
-    if (node.right) {
-      lastNode = convertNode(node.right);
-    }
-
-    return lastNode;
-  }
-}
-```
-
-## 二叉搜索树的后序遍历序列.js
-
-```js
-/**
- * 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
- * 假设输入的数组的任意两个数字都互不相同。
- */
-function verifySquenceOfBST(sequence) {
-
-}
-```
-
-## 二叉搜索树的第K个结点.js
-
-```js
-/**
- * 利用二叉查找树中序遍历有序的特点
- */
-function KthNode(root, k) {}
-```
-
-## 二叉树中和为某一值的路径.js
-
-```js
-/**
- * 输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。
- * 路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
- */
-function FindPath(root, target) {}
-```
-
-## 二叉树的下一个结点.js
-
-```js
-/**
- * 给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。
- * 注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
- */
-
-```
-
-## 二叉树的深度.js
-
-```js
-
-```
-
-## 从上往下打印二叉树.js
-
-```js
-
-```
-
-## 对称的二叉树.js
-
-```js
-
-```
-
-## 平衡二叉树.js
-
-```js
-
-```
-
-## 序列化二叉树.js
-
-```js
-
-```
-
-## 把二叉树打印成多行.js
-
-```js
-
-```
-
-## 按之字形顺序打印二叉树.js
-
-```js
-
-```
-
-## 数据流中的中位数.js
-
-```js
-
-```
-
-## 树的子结构.js
-
-```js
-
-```
-
-## 重建二叉树.js
-
-```js
-
-```
-
 # 正则
 
 ## 表示数值的字符串.js
@@ -1077,22 +900,6 @@ function isNumeric(str) {
   }
   return /[+-]?\\d*(\\.\\d+)?([eE][+-]?\\d+)?/.test(str);
 }
-```
-
-# 深度优先
-
-## 机器人的运动范围.js
-
-```js
-
-```
-
-# 贪心
-
-## 连续子数组的最大和.js
-
-```js
-
 ```
 
 # 递归
@@ -1128,62 +935,67 @@ function maxMatch(sentence){
 ## 两个链表的第一个公共结点.js
 
 ```js
+/**
+ * 输入两个链表，找出它们的第一个公共结点
+ */
+function FindFirstCommonNode(pHead1, pHead2) {
+  if (!pHead1 || !pHead2) {
+    return null;
+  }
 
-```
+  const len1 = getLength(pHead1);
+  const len2 = getLength(pHead2);
+  let lenDiff = len1 - len2;
 
-## 二叉搜索树与双向链表.js
+  let curr1 = pHead1;
+  let curr2 = pHead2;
+  if (len2 > len1) {
+    curr1 = pHead2;
+    curr2 = pHead1;
+    lenDiff = len2 - len1;
+  }
 
-```js
+  for (let i = 0; i < lenDiff; i++) {
+    curr1 = curr1.len1;
+  }
 
+  while (curr1 && curr2 && curr1 !== curr2) {
+    curr1 = curr1.next;
+    curr2 = curr2.next;
+  }
+
+  return curr1;
+
+  function getLength(node) {
+    let len = 0;
+    let curr = node;
+    while (curr) {
+      len++;
+      curr = curr.next;
+    }
+    return len;
+  }
+}
 ```
 
 ## 从头到尾打印链表.js
 
 ```js
-
-```
-
-## 删除链表中重复的结点.js
-
-```js
-
-```
-
-## 反转链表.js
-
-```js
-
-```
-
-## 合并两个排序的链表.js
-
-```js
-
-```
-
-## 把字符串转换成整数.js
-
-```js
-
-```
-
-## 链表中倒数第K个结点.js
-
-```js
-
-```
-
-## 链表中环的入口结点.js
-
-```js
-
-```
-
-# 队列
-
-## 用两个栈实现队列.js
-
-```js
-
+/**
+ * 输入一个链表，从尾到头打印链表每个节点的值
+ */
+function printListFromTailToHead(head) {
+  if (!head) {
+    return 0;
+  } else {
+    const arr = [];
+    let curr = head;
+    while (curr) {
+      arr.push(curr.val);
+      curr = curr.next;
+    }
+    return arr.reverse();
+  }
+}
 ```
 
