@@ -56,7 +56,9 @@ https://www.codewars.com/users/ringcrl
   - [滑动窗口的最大值.js](#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BCjs)
 - [数组](#%E6%95%B0%E7%BB%84)
   - [二维数组的查找.js](#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BEjs)
+  - [大数求和.js](#%E5%A4%A7%E6%95%B0%E6%B1%82%E5%92%8Cjs)
   - [把数组排成最小的数.js](#%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0js-1)
+  - [排名位置.js](#%E6%8E%92%E5%90%8D%E4%BD%8D%E7%BD%AEjs)
   - [数组中重复的数字.js](#%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97js)
   - [构建乘积数组.js](#%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84js)
   - [调整数组顺序使奇数位于偶数前面.js](#%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2js)
@@ -515,6 +517,46 @@ const matrix = [
 console.log(matrixFind(5, matrix));
 ```
 
+## 大数求和.js
+
+```js
+/**
+ * 对两个超过JavaScript安全范围的数求和
+ * @param {string} d1 - 参与计算的数
+ * @param {string} d2 - 参与计算的数
+ * @returns {string} -返回计算结果
+ */
+function add(d1, d2) {
+  // 如果第一个数较大则交换两个数
+  if (d1.length < d2.length) {
+    [d1, d2] = [d2, d1];
+  }
+  // 将两个数转为数组形式
+  const [arr1, arr2] = [[...d1].reverse(), [...d2].reverse()];
+  // num 用作当对应位数相加大于 10 时做进位
+  let num = 0;
+  // 循环 arr1.length 次求和
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2[i]) {
+      arr1[i] = Number.parseInt(arr1[i]) + Number.parseInt(arr2[i]) + num;
+    } else {
+      arr1[i] = Number.parseInt(arr1[i]) + num;
+    }
+    if (arr1[i] >= 10) {
+      [arr1[i], num] = [arr1[i] % 10, 1];
+    } else {
+      num = 0;
+    }
+  }
+  // 如果最后进位为 1，则结果前应加 1 为
+  if (num === 1) {
+    arr1[arr1.length] = num;
+  }
+  // 返回结果字符串
+  return arr1.reverse().join('');
+}
+```
+
 ## 把数组排成最小的数.js
 
 ```js
@@ -542,6 +584,80 @@ function printMinNumber(nums) {
 }
 
 console.log(printMinNumber([3, 32, 321]));
+```
+
+## 排名位置.js
+
+```js
+// 在一些排名中，人们收集分数。
+// 挑战是按 points 排序，并计算每个人的位置。
+// 但是请记住，如果两个或两个以上的人有相同的 points，
+// 他们应该有相同的位置编号并按姓名排序(姓名是唯一的)。
+// 例如:输入结构:
+// [
+//   {
+//     name: "John",
+//     points: 100,
+//   },
+//   {
+//     name: "Bob",
+//     points: 130,
+//   },
+//   {
+//     name: "Mary",
+//     points: 120,
+//   },
+//   {
+//     name: "Kate",
+//     points: 120,
+//   },
+// ]
+// 输出为
+// [
+//   {
+//     name: "Bob",
+//     points: 130,
+//     position: 1,
+//   },
+//   {
+//     name: "Kate",
+//     points: 120,
+//     position: 2,
+//   },
+//   {
+//     name: "Mary",
+//     points: 120,
+//     position: 2,
+//   },
+//   {
+//     name: "John",
+//     points: 100,
+//     position: 4,
+//   },
+// ]
+function ranking(people) {
+  people.sort((a, b) => {
+    if (a.points === b.points) {
+      // 字符串对比使用这个 api
+      return a.name.localeCompare(b.name);
+    }
+    return b.points - a.points;
+  });
+
+
+  const res = [];
+  people.forEach((item, index) => {
+    const prevItem = res[res.length - 1] || {};
+    res.push({
+      ...item,
+      position: item.points === prevItem.points ?
+        prevItem.position :
+        index + 1,
+    });
+  });
+
+  return res;
+}
 ```
 
 ## 数组中重复的数字.js
