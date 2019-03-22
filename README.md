@@ -55,6 +55,7 @@ https://www.codewars.com/users/ringcrl
   - [最小的K个数.js](#%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0js)
   - [滑动窗口的最大值.js](#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BCjs)
 - [数组](#%E6%95%B0%E7%BB%84)
+  - [n个数之和.js](#n%E4%B8%AA%E6%95%B0%E4%B9%8B%E5%92%8Cjs)
   - [二维数组的查找.js](#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BEjs)
   - [大数求和.js](#%E5%A4%A7%E6%95%B0%E6%B1%82%E5%92%8Cjs)
   - [把数组排成最小的数.js](#%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0js-1)
@@ -75,6 +76,7 @@ https://www.codewars.com/users/ringcrl
 - [正则](#%E6%AD%A3%E5%88%99)
   - [表示数值的字符串.js](#%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2js)
 - [递归](#%E9%80%92%E5%BD%92)
+  - [字符串所有组合.js](#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%89%80%E6%9C%89%E7%BB%84%E5%90%88js)
   - [最大长度单词分词.js](#%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6%E5%8D%95%E8%AF%8D%E5%88%86%E8%AF%8Djs)
 - [链表](#%E9%93%BE%E8%A1%A8)
   - [两个链表的第一个公共结点.js](#%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9js)
@@ -461,6 +463,115 @@ function getMaxIndex(arr, l, r) {
 ```
 
 # 数组
+
+## n个数之和.js
+
+```js
+/**
+调用说明：
+  array: 数据源数组。必选。
+  sum: 相加的和。必选。
+  tolerance: 容差。如果不指定此参数，则相加的和必须等于sum参数，指定此参数可以使结果在容差范围内浮动。可选。
+  targetCount: 操作数数量。如果不指定此参数，则结果包含所有可能的情况，指定此参数可以筛选出固定数量的数相加，假如指定为3，那么结果只包含三个数相加的情况。可选。
+  返回值：返回的是数组套数组结构，内层数组中的元素是操作数，外层数组中的元素是所有可能的结果。
+*/
+
+function getCombBySum(array, sum, tolerance, targetCount) {
+  const util = {
+    // get combination from array
+    // arr: target array
+    // num: combination item length
+    // return: one array that contain combination arrays
+    getCombination(arr, num) {
+      const r = [];
+      (function f(t, a, n) {
+        if (n == 0) {
+          return r.push(t);
+        }
+        for (let i = 0, l = a.length; i <= l - n; i++) {
+          f(t.concat(a[i]), a.slice(i + 1), n - 1);
+        }
+      })([], arr, num);
+      return r;
+    },
+    //take array index to a array
+    getArrayIndex(array) {
+      let i = 0,
+        r = [];
+      for (i = 0; i < array.length; i++) {
+        r.push(i);
+      }
+      return r;
+    }
+  }
+
+  let fun = {
+    //sort the array,then get what's we need
+    init(array, sum) {
+      //clone array
+      let _array = array.concat()
+      let r = []
+      let i = 0
+      //sort by asc
+      _array.sort((a, b) => {
+        return a - b;
+      });
+      //get all number when it's less than or equal sum
+      for (i = 0; i < _array.length; i++) {
+        if (_array[i] <= sum) {
+          r.push(_array[i]);
+        } else {
+          break;
+        }
+      }
+      return r;
+    },
+    //important function
+    core(array, sum, arrayIndex, count, r) {
+      let i = 0
+      let k = 0
+      let combArray = []
+      let _sum = 0
+      let _cca = []
+      let _cache = []
+      if (count == _returnMark) {
+        return;
+      }
+      //get current count combination
+      combArray = util.getCombination(arrayIndex, count);
+      for (i = 0; i < combArray.length; i++) {
+        _cca = combArray[i];
+        _sum = 0;
+        _cache = [];
+        //calculate the sum from combination
+        for (k = 0; k < _cca.length; k++) {
+          _sum += array[_cca[k]];
+          _cache.push(array[_cca[k]]);
+        }
+        if (Math.abs(_sum - sum) <= _tolerance) {
+          r.push(_cache);
+        }
+      }
+      fun.core(array, sum, arrayIndex, count - 1, r);
+    }
+  }
+
+  let r = []
+  let _array = []
+  let _targetCount = 0
+  let _tolerance = 0
+  let _returnMark = 0;
+  //check data
+  _targetCount = targetCount || _targetCount;
+  _tolerance = tolerance || _tolerance;
+  _array = fun.init(array, sum);
+  if (_targetCount) {
+    _returnMark = _targetCount - 1;
+  }
+  fun.core(_array, sum, util.getArrayIndex(_array), (_targetCount || _array.length), r);
+  return r;
+}
+```
 
 ## 二维数组的查找.js
 
@@ -1019,6 +1130,47 @@ function isNumeric(str) {
 ```
 
 # 递归
+
+## 字符串所有组合.js
+
+```js
+// 对于给定的字符串，写一个函数combinations(str)，
+// 求所有可能的组合。（结果不考虑顺序）
+// 字符串长度不大于12
+// 字符串遵循字典顺序
+
+/**
+ * @param {string} str 
+ */
+function combinations(string) {
+  const res = [];
+  
+  for (let i = 0; i < string.length; i++) {
+    helper(0, i, '');
+  }
+
+  return [...new Set(res)];
+
+  /**
+   * @param {number} start
+   * @param {number} depth 0 ~ 11
+   * @param {string} prefix 
+   */
+  function helper(start, depth, prefix) {
+    for (let i = start; i < string.length; i++) {
+      const next = prefix + string[i];
+      if (depth === 0) {
+        res.push(next);
+        continue;
+      }
+      helper(i + 1, depth - 1, next);
+    }
+  }
+}
+
+console.log(combinations('abc')); // ['a', 'b', 'c', 'ab', 'ac', 'bc', 'abc']
+console.log(combinations('aac')); // ['a', 'c', 'aa', 'ac',  'aac']
+```
 
 ## 最大长度单词分词.js
 
