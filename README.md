@@ -54,9 +54,14 @@ https://www.codewars.com/users/ringcrl
   - [数据流中的中位数.js](#%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0js)
   - [最小的K个数.js](#%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0js)
   - [滑动窗口的最大值.js](#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BCjs)
+- [数学](#%E6%95%B0%E5%AD%A6)
+  - [延长的周末.js](#%E5%BB%B6%E9%95%BF%E7%9A%84%E5%91%A8%E6%9C%ABjs)
+  - [父亲年龄是儿子两倍.js](#%E7%88%B6%E4%BA%B2%E5%B9%B4%E9%BE%84%E6%98%AF%E5%84%BF%E5%AD%90%E4%B8%A4%E5%80%8Djs)
+  - [环形数字.js](#%E7%8E%AF%E5%BD%A2%E6%95%B0%E5%AD%97js)
 - [数组](#%E6%95%B0%E7%BB%84)
   - [n个数之和.js](#n%E4%B8%AA%E6%95%B0%E4%B9%8B%E5%92%8Cjs)
   - [二维数组的查找.js](#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BEjs)
+  - [产生间隔数组.js](#%E4%BA%A7%E7%94%9F%E9%97%B4%E9%9A%94%E6%95%B0%E7%BB%84js)
   - [大数求和.js](#%E5%A4%A7%E6%95%B0%E6%B1%82%E5%92%8Cjs)
   - [把数组排成最小的数.js](#%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0js-1)
   - [排名位置.js](#%E6%8E%92%E5%90%8D%E4%BD%8D%E7%BD%AEjs)
@@ -81,6 +86,8 @@ https://www.codewars.com/users/ringcrl
 - [链表](#%E9%93%BE%E8%A1%A8)
   - [两个链表的第一个公共结点.js](#%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9js)
   - [从头到尾打印链表.js](#%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8js)
+  - [链表indexOf.js](#%E9%93%BE%E8%A1%A8indexofjs)
+  - [链表map.js](#%E9%93%BE%E8%A1%A8mapjs)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -462,6 +469,64 @@ function getMaxIndex(arr, l, r) {
 }
 ```
 
+# 数学
+
+## 延长的周末.js
+
+```js
+/**
+ * 如果一个月的第一天是周五
+ * 大多数时候这个月有 5 个周五、周六、周天
+ * 给定一个年份区间，找出所有的情况，返回格式
+   solve(2016,2020) = ['Jan','May',5]
+ */
+
+function solve(begin, end) {
+  const month = ['Jan', 'Mar', 'May', 'Jul', 'Aug', 'Oct', 'Dec'];
+  let count = 0;
+  const res = [];
+  for (let i = begin; i <= end; i++) {
+    for (const m of month) {
+      const date = `${m} 1, ${i}`;
+      if (new Date(date).getDay() === 5) {
+        res.push(m);
+        count++;
+      }
+    }
+  }
+  return [res[0], res[res.length - 1], count];
+}
+```
+
+## 父亲年龄是儿子两倍.js
+
+```js
+/**
+ * 多少年前(后)，父亲的年龄是儿子的两倍
+ */
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+  return Math.abs(dadYearsOld - 2 * sonYearsOld);
+}
+```
+
+## 环形数字.js
+
+```js
+/**
+ * 给定一个 n 和 firstNumber
+ * 从 0 到 n - 1 组成一个圆环
+ * 找出 firstNumber 的对面的那个数字
+ */
+function circleOfNumbers(n, firstNumber) {
+  const half = n / 2;
+  return firstNumber >= half ?
+    firstNumber - half :
+    firstNumber + half;
+}
+
+console.log(circleOfNumbers(10, 2)); // 7
+```
+
 # 数组
 
 ## n个数之和.js
@@ -626,6 +691,22 @@ const matrix = [
 ]
 
 console.log(matrixFind(5, matrix));
+```
+
+## 产生间隔数组.js
+
+```js
+/**
+  generateRange(2, 10, 2) // should return array of [2,4,6,8,10]
+  generateRange(1, 10, 3) // should return array of [1,4,7,10]
+ */
+function generateRange(min, max, step) {
+  const arr = [];
+  for (let i = min; i <= max; i += step) {
+    arr.push(i);
+  }
+  return arr;
+}
 ```
 
 ## 大数求和.js
@@ -877,7 +958,7 @@ console.log(reOrderArray([1, 2, 3, 4, 5]));
  * {6, -3, -2, 7, -15, 1, 2, 2}
  * 连续子数组的最大和为 8（从第 0 个开始，到第 3 个为止）
  */
-function FindGreatestSumOfSubArray(nums) {
+function maxSequence(nums) {
   if (nums === null || nums.length === 0) {
     return 0;
   }
@@ -892,7 +973,20 @@ function FindGreatestSumOfSubArray(nums) {
   return greatestSum;
 }
 
-console.log(FindGreatestSumOfSubArray([6, -3, -2, 7, -15, 1, 2, 2]));
+function maxSequence2(arr) {
+  let min = 0;
+  let ans = 0;
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+    min = Math.min(sum, min);
+    ans = Math.max(ans, sum - min);
+  }
+  return ans;
+}
+
+
+console.log(maxSequence([6, -3, -2, 7, -15, 1, 2, 2]));
 ```
 
 ## 逻辑运算.js
@@ -1265,5 +1359,59 @@ function printListFromTailToHead(head) {
     return arr.reverse();
   }
 }
+```
+
+## 链表indexOf.js
+
+```js
+/**
+    function Node(data, next = null) {
+      this.data = data;
+      this.next = next;
+    }
+
+    给定链表: 1 -> 2 -> 3 -> 3, 和 3
+    indexOf(node, value) 返回 2
+ */
+
+function indexOf(node, value) {
+  let i = 0;
+  let curr = node;
+  while (curr !== null) {
+    if (curr.data === value) { return i; }
+    curr = curr.next;
+    i++;
+  }
+  return -1;
+}
+```
+
+## 链表map.js
+
+```js
+/**
+ * 实现一个 map 方法处理链表
+ * list: 1 -> 2 -> 3, mapping function x => x * 2, map return 2 -> 4 -> 6
+
+  function Node(data, next = null) {
+    this.data = data;
+    this.next = next;
+  }
+ */
+
+ function LinkedListMap(head, f) {
+   if (!head) { return null; }
+
+   let curr = head;
+   let newLinkedList = new Node(-1);
+   const dummy = newLinkedList;
+   while (curr !== null) {
+     newLinkedList.next = new Node(f(curr.data));
+     newLinkedList = newLinkedList.next;
+     curr = curr.next;
+   }
+
+   return dummy.next;
+ }
 ```
 
