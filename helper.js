@@ -22,9 +22,9 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
 
 # 个人主页
 
-实时分数：
-
 [![CodeWars](https://www.codewars.com/users/ringcrl/badges/large)](https://www.codewars.com/users/ringcrl)
+
+（所有图片会被 Github 包装一层，超过 4s 即超时，如无法显示可刷新重试）
 
 # 刷题参数
 
