@@ -15,9 +15,7 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
 
 实时分数：
 
-![](https://static.chenng.cn/api/dynamic_image/codewars)
-
-https://www.codewars.com/users/ringcrl
+[![CodeWars](https://www.codewars.com/users/ringcrl/badges/large)](https://www.codewars.com/users/ringcrl)
 
 # 刷题参数
 
@@ -59,6 +57,7 @@ https://www.codewars.com/users/ringcrl
   - [父亲年龄是儿子两倍.js](#%E7%88%B6%E4%BA%B2%E5%B9%B4%E9%BE%84%E6%98%AF%E5%84%BF%E5%AD%90%E4%B8%A4%E5%80%8Djs)
   - [环形数字.js](#%E7%8E%AF%E5%BD%A2%E6%95%B0%E5%AD%97js)
 - [数组](#%E6%95%B0%E7%BB%84)
+  - [Array.diff.js](#arraydiffjs)
   - [n个数之和.js](#n%E4%B8%AA%E6%95%B0%E4%B9%8B%E5%92%8Cjs)
   - [二维数组的查找.js](#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BEjs)
   - [产生间隔数组.js](#%E4%BA%A7%E7%94%9F%E9%97%B4%E9%9A%94%E6%95%B0%E7%BB%84js)
@@ -528,6 +527,21 @@ console.log(circleOfNumbers(10, 2)); // 7
 ```
 
 # 数组
+
+## Array.diff.js
+
+```js
+/**
+ * 实现一个 diff 方法
+ * 从数组 a 中移除所有 数组 b 的元素
+   array_diff([1,2,2,2,3],[2]) == [1,3]
+ */
+function array_diff(a, b) {
+  return a.filter(item => {
+    return !b.includes(item);
+  });
+}
+```
 
 ## n个数之和.js
 

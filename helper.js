@@ -24,9 +24,7 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
 
 实时分数：
 
-![](https://static.chenng.cn/api/dynamic_image/codewars)
-
-https://www.codewars.com/users/ringcrl
+[![CodeWars](https://www.codewars.com/users/ringcrl/badges/large)](https://www.codewars.com/users/ringcrl)
 
 # 刷题参数
 
