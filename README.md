@@ -42,6 +42,8 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
   - [变态跳台阶.js](#%E5%8F%98%E6%80%81%E8%B7%B3%E5%8F%B0%E9%98%B6js)
   - [斐波那契数列.js](#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97js)
   - [跳台阶.js](#%E8%B7%B3%E5%8F%B0%E9%98%B6js)
+- [原生](#%E5%8E%9F%E7%94%9F)
+  - [计算餐费.js](#%E8%AE%A1%E7%AE%97%E9%A4%90%E8%B4%B9js)
 - [哈希](#%E5%93%88%E5%B8%8C)
   - [字符流中第一个不重复的字符.js](#%E5%AD%97%E7%AC%A6%E6%B5%81%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%97%E7%AC%A6js)
   - [第一个只出现一次的字符位置.js](#%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6%E4%BD%8D%E7%BD%AEjs)
@@ -62,6 +64,7 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
   - [二维数组的查找.js](#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BEjs)
   - [产生间隔数组.js](#%E4%BA%A7%E7%94%9F%E9%97%B4%E9%9A%94%E6%95%B0%E7%BB%84js)
   - [大数求和.js](#%E5%A4%A7%E6%95%B0%E6%B1%82%E5%92%8Cjs)
+  - [找到唯一不同的数字.js](#%E6%89%BE%E5%88%B0%E5%94%AF%E4%B8%80%E4%B8%8D%E5%90%8C%E7%9A%84%E6%95%B0%E5%AD%97js)
   - [把数组排成最小的数.js](#%E6%8A%8A%E6%95%B0%E7%BB%84%E6%8E%92%E6%88%90%E6%9C%80%E5%B0%8F%E7%9A%84%E6%95%B0js-1)
   - [排名位置.js](#%E6%8E%92%E5%90%8D%E4%BD%8D%E7%BD%AEjs)
   - [数组中重复的数字.js](#%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97js)
@@ -259,6 +262,23 @@ function JumpFloor(n) {
     pre1 = total;
   }
   return total;
+}
+```
+
+# 原生
+
+## 计算餐费.js
+
+```js
+/**
+ * 
+ * @param {*} subtotal 餐费
+ * @param {*} tax 税率整数
+ * @param {*} tip 消费整数
+ */
+function calculate_total(subtotal, tax, tip) {
+  // toFixed 接收【数字】入参，返回值是【字符串】
+  return (subtotal + tax / 100 * subtotal + tip / 100 * subtotal).toFixed(2) - 0;
 }
 ```
 
@@ -760,6 +780,20 @@ function add(d1, d2) {
   }
   // 返回结果字符串
   return arr1.reverse().join('');
+}
+```
+
+## 找到唯一不同的数字.js
+
+```js
+/**
+ * 数组中所有数字都相同，除了一个不同
+ */
+function findUniq(arr) {
+  arr.sort();
+  return arr[0] !== arr[1] ?
+    arr[0] :
+    arr.pop();
 }
 ```
 
