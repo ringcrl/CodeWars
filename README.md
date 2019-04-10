@@ -33,6 +33,9 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [API](#api)
+  - [午夜时分.js](#%E5%8D%88%E5%A4%9C%E6%97%B6%E5%88%86js)
+  - [计算餐费.js](#%E8%AE%A1%E7%AE%97%E9%A4%90%E8%B4%B9js)
 - [位运算](#%E4%BD%8D%E8%BF%90%E7%AE%97)
   - [不用加减乘除做加法.js](#%E4%B8%8D%E7%94%A8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E5%81%9A%E5%8A%A0%E6%B3%95js)
   - [二进制中1的个数.js](#%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0js)
@@ -42,10 +45,9 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
   - [变态跳台阶.js](#%E5%8F%98%E6%80%81%E8%B7%B3%E5%8F%B0%E9%98%B6js)
   - [斐波那契数列.js](#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97js)
   - [跳台阶.js](#%E8%B7%B3%E5%8F%B0%E9%98%B6js)
-- [原生](#%E5%8E%9F%E7%94%9F)
-  - [计算餐费.js](#%E8%AE%A1%E7%AE%97%E9%A4%90%E8%B4%B9js)
 - [哈希](#%E5%93%88%E5%B8%8C)
   - [字符流中第一个不重复的字符.js](#%E5%AD%97%E7%AC%A6%E6%B5%81%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%97%E7%AC%A6js)
+  - [找出高频数字.js](#%E6%89%BE%E5%87%BA%E9%AB%98%E9%A2%91%E6%95%B0%E5%AD%97js)
   - [第一个只出现一次的字符位置.js](#%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6%E4%BD%8D%E7%BD%AEjs)
 - [回溯](#%E5%9B%9E%E6%BA%AF)
   - [字符串的排列.js](#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97js)
@@ -54,13 +56,21 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
   - [数据流中的中位数.js](#%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0js)
   - [最小的K个数.js](#%E6%9C%80%E5%B0%8F%E7%9A%84k%E4%B8%AA%E6%95%B0js)
   - [滑动窗口的最大值.js](#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BCjs)
+- [排序](#%E6%8E%92%E5%BA%8F)
+  - [冒泡排序.js](#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8Fjs)
+  - [合并排序.js](#%E5%90%88%E5%B9%B6%E6%8E%92%E5%BA%8Fjs)
+  - [快速排序.js](#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8Fjs)
+  - [插入排序.js](#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8Fjs)
+  - [选择排序.js](#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8Fjs)
 - [数学](#%E6%95%B0%E5%AD%A6)
   - [延长的周末.js](#%E5%BB%B6%E9%95%BF%E7%9A%84%E5%91%A8%E6%9C%ABjs)
   - [父亲年龄是儿子两倍.js](#%E7%88%B6%E4%BA%B2%E5%B9%B4%E9%BE%84%E6%98%AF%E5%84%BF%E5%AD%90%E4%B8%A4%E5%80%8Djs)
   - [环形数字.js](#%E7%8E%AF%E5%BD%A2%E6%95%B0%E5%AD%97js)
+  - [等概率随机函数.js](#%E7%AD%89%E6%A6%82%E7%8E%87%E9%9A%8F%E6%9C%BA%E5%87%BD%E6%95%B0js)
 - [数组](#%E6%95%B0%E7%BB%84)
   - [Array.diff.js](#arraydiffjs)
   - [n个数之和.js](#n%E4%B8%AA%E6%95%B0%E4%B9%8B%E5%92%8Cjs)
+  - [两个数组为子集关系.js](#%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%B8%BA%E5%AD%90%E9%9B%86%E5%85%B3%E7%B3%BBjs)
   - [二维数组的查找.js](#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BEjs)
   - [产生间隔数组.js](#%E4%BA%A7%E7%94%9F%E9%97%B4%E9%9A%94%E6%95%B0%E7%BB%84js)
   - [大数求和.js](#%E5%A4%A7%E6%95%B0%E6%B1%82%E5%92%8Cjs)
@@ -69,6 +79,9 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
   - [排名位置.js](#%E6%8E%92%E5%90%8D%E4%BD%8D%E7%BD%AEjs)
   - [数组中重复的数字.js](#%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97js)
   - [构建乘积数组.js](#%E6%9E%84%E5%BB%BA%E4%B9%98%E7%A7%AF%E6%95%B0%E7%BB%84js)
+  - [树状结构转换.js](#%E6%A0%91%E7%8A%B6%E7%BB%93%E6%9E%84%E8%BD%AC%E6%8D%A2js)
+  - [树状结构转换2.js](#%E6%A0%91%E7%8A%B6%E7%BB%93%E6%9E%84%E8%BD%AC%E6%8D%A22js)
+  - [洗牌算法.js](#%E6%B4%97%E7%89%8C%E7%AE%97%E6%B3%95js)
   - [调整数组顺序使奇数位于偶数前面.js](#%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2js)
   - [连续子数组的最大和.js](#%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8Cjs)
   - [逻辑运算.js](#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97js)
@@ -92,6 +105,49 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
   - [链表map.js](#%E9%93%BE%E8%A1%A8mapjs)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# API
+
+## 午夜时分.js
+
+```js
+/**
+ * 编写一个采用负整数或正整数的函数，表示(-)周日午夜前或(+)周日午夜后的分钟数，
+ * 并以24小时格式(“hh:mm”)作为字符串返回一周中的当前日期和当前时间
+ * 
+  dayAndTime(0)       should return 'Sunday 00:00'
+  dayAndTime(-3)      should return 'Saturday 23:57'
+  dayAndTime(45)      should return 'Sunday 00:45'
+  dayAndTime(759)     should return 'Sunday 12:39'
+  dayAndTime(1236)    should return 'Sunday 20:36'
+  dayAndTime(1447)    should return 'Monday 00:07'
+  dayAndTime(7832)    should return 'Friday 10:32'
+  dayAndTime(18876)   should return 'Saturday 02:36'
+  dayAndTime(259180)  should return 'Thursday 23:40' 
+  dayAndTime(-349000) should return 'Tuesday 15:20'
+ */
+function dayAndTime(n) {
+  const ms = new Date('2019 4 7 00:00:00').setMinutes(n);
+  const date = new Date(ms);
+  const map = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  return `${map[date.getDay()]} ${date.toTimeString().slice(0, 5)}`;
+}
+```
+
+## 计算餐费.js
+
+```js
+/**
+ * 
+ * @param {*} subtotal 餐费
+ * @param {*} tax 税率整数
+ * @param {*} tip 消费整数
+ */
+function calculate_total(subtotal, tax, tip) {
+  // toFixed 接收【数字】入参，返回值是【字符串】
+  return (subtotal + tax / 100 * subtotal + tip / 100 * subtotal).toFixed(2) - 0;
+}
+```
 
 # 位运算
 
@@ -265,23 +321,6 @@ function JumpFloor(n) {
 }
 ```
 
-# 原生
-
-## 计算餐费.js
-
-```js
-/**
- * 
- * @param {*} subtotal 餐费
- * @param {*} tax 税率整数
- * @param {*} tip 消费整数
- */
-function calculate_total(subtotal, tax, tip) {
-  // toFixed 接收【数字】入参，返回值是【字符串】
-  return (subtotal + tax / 100 * subtotal + tip / 100 * subtotal).toFixed(2) - 0;
-}
-```
-
 # 哈希
 
 ## 字符流中第一个不重复的字符.js
@@ -307,6 +346,39 @@ function FirstAppearingOnce(str) {
 }
 
 console.log(FirstAppearingOnce('google'));
+```
+
+## 找出高频数字.js
+
+```js
+/**
+  已知⼀一个 int 数组，数组中每个数字出现的频率都不不相同，实现⼀个 topKFrequent 函数返回
+  该数组中频率前 K ⾼高的数字。
+
+  例例⼦子1:
+  let nums = [1,1,1,2,2,3], k = 3;
+  topKFrequent(nums, k); // 输出为:[1,2,3]
+  例例⼦子2:
+  let nums = [1,1,2,2,2,3], k = 2;
+  topKFrequent(nums, k); // 输出为:[2,1] // 例例⼦子3
+  let nums = [1,1,1,2,2,3,3,3,3], k = 1;
+  console.log(topKFrequent(nums, k)); // 输出为:[3]
+ */
+function topKFrequent(nums, k) {
+  const numberMap = nums.reduce((prev, curr) => {
+    prev[curr] ? (prev[curr] += 1) : (prev[curr] = 1);
+    return prev;
+  }, {});
+
+  const values = Object.entries(numberMap);
+  const valuesSorted = values.sort((a, b) => {
+    return b[1] - a[1];
+  });
+  return valuesSorted.slice(0, k).map((item) => {
+    return item[0];
+  });
+}
+
 ```
 
 ## 第一个只出现一次的字符位置.js
@@ -488,6 +560,175 @@ function getMaxIndex(arr, l, r) {
 }
 ```
 
+# 排序
+
+## 冒泡排序.js
+
+```js
+function bubbleSort(arr) {
+  const len = arr.length;
+  for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len - 1 - i; j++) {
+      // 内循环 - 外循环中已经跑过的轮数，避免内循环不必要的比较
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+      }
+    }
+  }
+  return arr;
+}
+
+function swap(arr, i, j) {
+  [ arr[i], arr[j] ] = [ arr[j], arr[i] ];
+}
+
+console.log(bubbleSort([ 2, 3, 4, 1, 7, 4, 3, 6, 9, 7 ]));
+
+```
+
+## 合并排序.js
+
+```js
+/**
+ * 并归排
+ * 1. 归并排序使用了分治的思想，而这个过程需要使用递归来实现
+ * @param {Array} arr 
+ */
+function mergeSort(arr) {
+  // 如果分解到只剩下一个数，返回该数
+  if (arr.length === 1) { return arr; }
+
+  // 将数组分成左右两半
+  const mid = Math.floor(arr.length / 2);
+  let left = arr.slice(0, mid);
+  let right = arr.slice(mid);
+
+  // 对两半分别进行排序
+  left = mergeSort(left);
+  right = mergeSort(right);
+
+  // 合并排序后的两半
+  return merge(left, right);
+}
+
+function merge(a, b) {
+  const merged = [];
+  let mi = 0;
+  let ai = 0;
+  let bi = 0;
+
+  // 轮流从两个数组中取出较小的值，放入合并后的数组
+  while (ai < a.length && bi < b.length) {
+    if (a[ai] <= b[bi]) {
+      merged[mi++] = a[ai++];
+    } else {
+      merged[mi++] = b[bi++];
+    }
+  }
+
+  // 将某个数组内剩余的数字合并后放入数组中
+  if (ai < a.length) {
+    for (let i = ai; i < a.length; i++) {
+      merged[mi++] = a[i];
+    }
+  } else {
+    for (let i = bi; i < b.length; i++) {
+      merged[mi++] = b[i];
+    }
+  }
+
+  return merged;
+}
+
+console.log(mergeSort([2, 3, 4, 1, 7, 4, 3, 6, 9, 7]));
+```
+
+## 快速排序.js
+
+```js
+/**
+ * 快排
+ * @param {Array} arr 
+ */
+function quickSort(arr) {
+  if (arr.length === 0) { return arr; }
+
+  const [pivot, ...rest] = arr;
+  const smaller = [];
+  const bigger = [];
+  
+  rest.forEach((x) => {
+    return x < pivot ? 
+      smaller.push(x) :
+      bigger.push(x);
+  });
+
+  return [...quickSort(smaller), pivot, ...quickSort(bigger)];
+}
+
+console.log(quickSort([2, 3, 4, 1, 7, 4, 3, 6, 9, 7]));
+```
+
+## 插入排序.js
+
+```js
+function insertionSort(arr) {
+  const len = arr.length;
+  let j;
+  let temp;
+
+  // 认为第一项已经排序了，所以从索引 1 开始
+  // 迭代数组来给第 i 项找到正确的位置
+  for (let i = 1; i < len; i++) {
+    j = i; // 使用 i 来初始化一个辅助变量
+    temp = arr[i]; // 将上一步对应的值存储于一个临时变量中，便于之后将其插入到正确的位置上
+    // 找到正确的位置来插入项目
+    // 只要变量 j 比 0 大（数组的第一个索引为 0）,并且数组中前面的值比待比较的值大
+    while (j > 0 && arr[j - 1] > temp) {
+      arr[j] = arr[j - 1]; // 把这个值移到当前位置上，并减小 j
+      j--;
+    }
+    arr[j] = temp;
+  }
+
+  return arr;
+}
+
+console.log(insertionSort([ 2, 3, 4, 1, 7, 4, 3, 6, 9, 7 ]));
+
+```
+
+## 选择排序.js
+
+```js
+function selectionSort(arr) {
+  const len = arr.length;
+  let indexMin;
+  for (let i = 0; i < len - 1; i++) { // 控制迭代轮次
+    indexMin = i; // 假设本轮迭代的 i 值为数组的 indexMin
+    for (let j = i; j < len; j++) { // 从当前 i 的值开始到数组结束
+      if (arr[indexMin] > arr[j]) { // 比较是否位置 j 的值比当前最小值小
+        indexMin = j; // 如果是，则改变 indexMin 为新的 j
+      }
+    }
+
+    // 内循环结束，得出 indexMin 的值
+
+    if (i !== indexMin) { // 如果该最小值与原最小值不同，则交换其值
+      swap(arr, i, indexMin);
+    }
+  }
+
+  return arr;
+}
+
+function swap(arr, i, j) {
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+}
+
+console.log(selectionSort([2, 3, 4, 1, 7, 4, 3, 6, 9, 7]));
+```
+
 # 数学
 
 ## 延长的周末.js
@@ -544,6 +785,44 @@ function circleOfNumbers(n, firstNumber) {
 }
 
 console.log(circleOfNumbers(10, 2)); // 7
+```
+
+## 等概率随机函数.js
+
+```js
+/**
+ * 已知函数 oneToFive 可以生成 [1, 5] 的随机数
+ * 利用这个 oneToFive 函数生成一个可以产生 [1, 7] 随机数的函数
+ */
+function oneToFive() {
+  return Math.floor(Math.random() * 5 + 1);
+}
+
+// 利用 oneToFive()函数生成 1-25 之间的数字
+// 然后将其中的 1-21 映射成 1-7，丢弃 22-25
+// 例如生成 (1，1)，(1，2)，(1，3)，则看成 oneToSeven()中的 1，如果出现剩下的 4 种，则丢弃重新生成
+// 此题中 N 为5，因此可以使用rand5()*5+rand5()来产生 2 位的 5 进制数，范围就是 1 到 25
+// 再去掉 22~25，剩余的除 3，以此作为 oneToSeven()的产生器。
+function oneToSeven() {
+  let result = 0;
+  do {
+    result = 5 * (oneToFive() - 1) + oneToFive();
+  } while (result > 21);
+
+  return 1 + result % 7;
+}
+
+const result = {};
+for (let i = 0; i < 100000; i++) {
+  const num = oneToSeven();
+  if (!result[String(num)]) {
+    result[String(num)] = 1;
+  }
+  result[String(num)] += 1;
+}
+
+console.log(result);
+
 ```
 
 # 数组
@@ -670,6 +949,42 @@ function getCombBySum(array, sum, tolerance, targetCount) {
   fun.core(_array, sum, util.getArrayIndex(_array), (_targetCount || _array.length), r);
   return r;
 }
+```
+
+## 两个数组为子集关系.js
+
+```js
+/**
+ * 1. 数组有序
+ * 2. B.length > A.length
+ * 3. 有重复
+ * 4. A 是否是 B 的子数组
+ * @param {*} A 
+ * @param {*} B 
+ */
+function isSubArr(A, B) {
+  let ai = 0;
+  let bi = 0;
+  while (ai <= A.length - 1 && bi <= B.length - 1) {
+    if (A[ai] === B[bi]) {
+      ai++;
+      bi++;
+      continue;
+    }
+    if (A[ai] > B[bi]) {
+     bi++;
+     continue; 
+    }
+    if (A[ai] < B[bi]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(isSubArr([1, 1, 2], [1, 1, 1, 2, 3, 4])); // true
+console.log(isSubArr([1, 1, 3], [1, 1, 1, 2, 4])); // false
 ```
 
 ## 二维数组的查找.js
@@ -961,6 +1276,196 @@ function multiply(arr) {
 }
 
 console.log(multiply([1, 2, 3, 4, 5]));
+```
+
+## 树状结构转换.js
+
+```js
+/**
+ * 
+    const array = [
+      { id: 3, value: '1-1', parent_id: 1 },
+      { id: 1, value: '1', parent_id: null },
+      { id: 4, value: '1-2', parent_id: 1 },
+      { id: 6, value: '2-2', parent_id: 2 },
+      { id: 2, value: '2', parent_id: null },
+      { id: 5, value: '2-1', parent_id: 2 },
+    ];
+    ```
+
+    变成
+
+    ```js
+    [
+      {
+        id: 1,
+        value: '1',
+        children: [
+          {id:3, value: '1-1', children: null},
+          {id:4, value: '1-2', children: null},
+        ]
+      },
+      {
+        id: 2,
+        value: '2',
+        children: [
+          {id: 5, value: '2-1', children: null},
+          {id: 5, value: '2-2', children: null},
+        ]
+      },
+    ]
+ * 
+ */
+function convert(array) {
+  array.sort((a, b) => {
+    const aId = a.parent_id === null ? 0 : a.parent_id;
+    const bId = b.parent_id === null ? 0 : b.parent_id;
+    return aId - bId;
+  });
+
+  return array.reduce((prev, curr) => {
+    if (curr.parent_id === null) {
+      return prev.concat({
+        id: curr.id,
+        value: curr.value,
+        children: [],
+      });
+    }
+
+    const parent = prev.find((item) => item.id === curr.parent_id);
+    parent.children.push({
+      id: curr.id,
+      value: curr.value,
+      children: [],
+    });
+
+    return prev;
+  }, []);
+}
+
+```
+
+## 树状结构转换2.js
+
+```js
+/**
+  - 约10W量级
+  - id<20W,
+  - 父子节点通过id-pid进行关联，父节点id小于子节点
+  - 没有重复的id
+  - 树的层级不确定有多少级，但不会太大
+  - 整理好的数据，children中节点需要按照id从小到大排序
+
+[
+  {id : 25, pid : 10, name : 'apple'}, 
+  {id : 100,  pid :1, name : 'tree'}, 
+  {id : 10, pid : 1, name : 'fruit'}, 
+  {id : 35, pid : 10, name : 'grape'}, 
+  {id : 1,  pid :0, name : 'plant'}, 
+  {id : 123,  pid :100, name : 'pine tree'}, 
+  {id : 155,  pid :100, name : 'elm'}, 
+]
+
+ {
+  id: 1,
+  pid: 0,
+  name: 'plant',
+  children: [
+    {
+      id: 10,
+      pid: 1,
+      name: 'fruit',
+      children: [{
+        id: 25,
+        pid: 10,
+        name: 'apple'
+      }, {
+        id: 35,
+        pid: 10,
+        name: 'grape'
+      }],
+    },
+    {
+      id : 100,
+      pid : 1,
+      name: 'tree',
+      children: [{
+        id : 123,
+        pid : 100,
+        name: 'pine tree'
+      }, {
+        id : 155,
+        pid : 100,
+        name: 'elm'
+      }],
+    }
+  ]
+}
+ */
+module.exports = function toTree(list) {
+  list = list.sort((a, b) => {
+    return a.id - b.id;
+  });
+
+  return getNode(list, 0)[0];
+};
+
+function getNode(list, id) {
+  const node = [];
+  for (let i = 0; i < list.length; i++) {
+    const currNode = list[i];
+    if (currNode.pid === id) {
+      const children = getNode(list, currNode.id);
+      currNode.children = children;
+      node.push(currNode);
+    }
+  }
+
+  if (node.length === 0) {
+    return;
+  }
+
+  return node;
+}
+
+```
+
+## 洗牌算法.js
+
+```js
+/**
+ * 概率随机的洗牌算法
+ */
+function random_shuffle(A) {
+  for (let i = 0; i < A.length; i++) {
+    const j = Math.floor(Math.random() * (A.length - i) + i);
+    swap(A, i, j);
+  }
+  return A;
+}
+
+function swap(A, i, j) {
+  [ A[i], A[j] ] = [ A[j], A[i] ];
+}
+
+// 模拟用户数组
+
+const users = [];
+for (let i = 0; i < 400; i++) {
+  users.push(i);
+}
+
+random_shuffle(users);
+
+// 前10个中奖的 - 1等奖
+const award1 = users.slice(0, 10);
+
+// 后10个中奖 - 2等奖
+const award2 = users.slice(10, 20);
+
+console.log(award1);
+console.log(award2);
+
 ```
 
 ## 调整数组顺序使奇数位于偶数前面.js
