@@ -70,6 +70,7 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
 - [数组](#%E6%95%B0%E7%BB%84)
   - [Array.diff.js](#arraydiffjs)
   - [n个数之和.js](#n%E4%B8%AA%E6%95%B0%E4%B9%8B%E5%92%8Cjs)
+  - [n个随机不重复的整数.js](#n%E4%B8%AA%E9%9A%8F%E6%9C%BA%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B4%E6%95%B0js)
   - [两个数组为子集关系.js](#%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%B8%BA%E5%AD%90%E9%9B%86%E5%85%B3%E7%B3%BBjs)
   - [二维数组的查找.js](#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E6%9F%A5%E6%89%BEjs)
   - [产生间隔数组.js](#%E4%BA%A7%E7%94%9F%E9%97%B4%E9%9A%94%E6%95%B0%E7%BB%84js)
@@ -98,6 +99,7 @@ docsify 阅读：[https://static.chenng.cn](https://static.chenng.cn/#/%E7%AE%97
 - [递归](#%E9%80%92%E5%BD%92)
   - [字符串所有组合.js](#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%89%80%E6%9C%89%E7%BB%84%E5%90%88js)
   - [最大长度单词分词.js](#%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6%E5%8D%95%E8%AF%8D%E5%88%86%E8%AF%8Djs)
+  - [根据ID查找元素.js](#%E6%A0%B9%E6%8D%AEid%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0js)
 - [链表](#%E9%93%BE%E8%A1%A8)
   - [两个链表的第一个公共结点.js](#%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9js)
   - [从头到尾打印链表.js](#%E4%BB%8E%E5%A4%B4%E5%88%B0%E5%B0%BE%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8js)
@@ -949,6 +951,24 @@ function getCombBySum(array, sum, tolerance, targetCount) {
   fun.core(_array, sum, util.getArrayIndex(_array), (_targetCount || _array.length), r);
   return r;
 }
+```
+
+## n个随机不重复的整数.js
+
+```js
+/**
+ * 函数 uniqueNums，该函数有两个参数 `range:[min, max]`, n
+ * 其返回值是一个数组，该数组内是 n 个随机且不重复的整数，且整数取值范围是 range
+ */
+const uniqueNums = (range, n) => {
+  const len = range[1] - range[0] + 1;
+  return Array(len).fill(0)
+    .map((_, i) => i + range[0])
+    .sort(() => Math.random() - Math.random())
+    .slice(0, n);
+};
+
+console.log(uniqueNums([5, 20], 5));
 ```
 
 ## 两个数组为子集关系.js
@@ -1843,6 +1863,71 @@ function maxMatch(sentence){
   
   return [];
 }
+```
+
+## 根据ID查找元素.js
+
+```js
+function findNodeById(root, id) {
+  if (id === root.id) {
+    return root;
+  }
+
+  const children = root.children;
+  if (children && children.length > 0) {
+    for (let i = 0; i < children.length; i++) {
+      const child = children[i];
+      const result = findNodeById(child, id);
+      if (result) {
+        return result;
+      }
+    }
+  }
+
+  return undefined;
+}
+
+const tree = {
+  id: '1',
+  label: 'first',
+  children: [
+    { id: '2', label: 'second' },
+    {
+      id: '3',
+      label: 'third',
+      children: [
+        {
+          id: '4',
+          label: 'fourth',
+        },
+        {
+          id: '5',
+          label: 'fifth',
+          children: [
+            {
+              id: '6',
+              label: 'sixth',
+            },
+            {
+              id: '7',
+              label: 'seven',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+console.log(findNodeById(tree, '1'));
+console.log(findNodeById(tree, '2'));
+console.log(findNodeById(tree, '3'));
+console.log(findNodeById(tree, '4'));
+console.log(findNodeById(tree, '5'));
+console.log(findNodeById(tree, '6'));
+console.log(findNodeById(tree, '7'));
+console.log(findNodeById(tree, '8'));
+
 ```
 
 # 链表
